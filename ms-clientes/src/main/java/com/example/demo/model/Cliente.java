@@ -20,8 +20,8 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false,length = 20 )
-    private Integer rut;
+    @Column(nullable = false,length = 15)
+    private String rut;
 
     @Column(nullable = false,length = 100)
     private String nombre;
@@ -29,14 +29,14 @@ public class Cliente {
     @Column(nullable = false, length = 100)
     private String apellido;
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false)
     private Integer edad;
 
     @Column(nullable = false, length = 100)
     private String correo;
 
-    @Column(nullable = false, length = 100)
-    private Integer telefono;
+    @Column(nullable = false, length = 20)
+    private String telefono;
 
 
 }

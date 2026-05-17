@@ -11,11 +11,11 @@ import lombok.NoArgsConstructor;
 public class ClienteResponseDTO {
 
     private Long id;
-    private Integer rut;
+    private String rut;
     private String nombre;
     private String apellido;
     private Integer edad;
     private String correo;
-    private Integer telefono;
+    private String telefono;
 
 }

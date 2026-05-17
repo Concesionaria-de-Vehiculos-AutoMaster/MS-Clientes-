@@ -24,7 +24,6 @@ public class ClienteService {
                 .map(this::convertirAResponseDTO)
                 .collect(Collectors.toList());
     }
-
     public ClienteResponseDTO obtenerPorId(Long id) {
         Cliente cliente = clienteRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("No se encontró el cliente con ID: " + id));
@@ -41,14 +40,12 @@ public class ClienteService {
         cliente.setTelefono(request.getTelefono());
 
         Cliente clienteGuardado = clienteRepository.save(cliente);
-
         return convertirAResponseDTO(clienteGuardado);
     }
 
     public ClienteResponseDTO actualizarCliente(Long id, ClienteRequestDTO request) {
         Cliente clienteExistente = clienteRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("No se puede actualizar. Cliente no encontrado con ID: " + id));
-
         clienteExistente.setRut(request.getRut());
         clienteExistente.setNombre(request.getNombre());
         clienteExistente.setApellido(request.getApellido());
@@ -62,7 +59,6 @@ public class ClienteService {
     }
 
     public void eliminarCliente(Long id) {
-
         if (!clienteRepository.existsById(id)) {
             throw new RuntimeException("No se puede eliminar. Cliente no encontrado con ID: " + id);
         }

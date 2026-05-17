@@ -12,11 +12,12 @@ import java.math.BigDecimal;
 
 public class ClienteRequestDTO {
 
-    @NotNull(message = "El RUT es obligatorio")
-    private Integer rut;
+    @NotBlank(message = "El RUT es obligatorio")
+    @Size(min = 7, max = 15, message = "El rut debe tener entre 7 y 15 caracteres")
+    private String rut;
 
     @NotBlank(message = "El nombre no puede estar vacío")
-    @Size(min = 2, max = 50, message = "El nombre debe tener entre 2 y 50 caracteres")
+    @Size(min = 1, max = 100, message = "El nombre debe tener entre 1 y 100 caracteres")
     private String nombre;
 
     @NotBlank(message = "El apellido no puede estar vacío")
@@ -28,7 +29,7 @@ public class ClienteRequestDTO {
     @NotBlank(message = "El correo es obligatorio")
     private String correo;
 
-    @NotNull(message = "El teléfono es obligatorio")
-    private Integer telefono;
-
+    @NotBlank(message = "El teléfono es obligatorio")
+    @Size(min = 7, max = 20, message = "El numero debe tener entre 7 y 20 caracteres")
+    private String telefono;
 }
